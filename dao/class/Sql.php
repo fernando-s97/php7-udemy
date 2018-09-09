@@ -18,15 +18,15 @@ class Sql extends PDO {
 		return $statement;
 	}
 
-	public function select($rawQuery, $parameters = array()) : array {
-		$statement = $this->query($rawQuery, $parameters);
-		return $statement->fetchAll(PDO::FETCH_ASSOC);
-	}
-
 	private function setParameters($statement, $parameters = array()) {
 		foreach ($parameters as $key => $value) {
 			$statement->bindParam($key, $value);
 		}
+	}
+
+	public function select($rawQuery, $parameters = array()) : array {
+		$statement = $this->query($rawQuery, $parameters);
+		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 }
 
