@@ -1,5 +1,8 @@
 <?php 
 
+/**
+ * 
+ */
 class Sql extends PDO {
 
 	private $connection;
