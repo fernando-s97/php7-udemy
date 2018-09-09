@@ -1,0 +1,131 @@
+﻿Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @fernando-s97 Sign out
+1
+0 0 fernando-s97/php7-course-udemy
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+php7-course-udemy/Annotations
+26828c0  on Dec 4, 2017
+@fernando-s97 fernando-s97 colocando "Annotations" no repo
+    
+Executable File  94 lines (71 sloc)  6.58 KB
+------------------------------- AULA 5 -------------------------------
+XAMPP -> Instalar e configura o servidor apache
+httpd.conf -> Arquivo de configuração do apache
+php.ini -> Arquivo de configuração do php
+localhost ou 127.0.0.1 -> Referência ao servidor da própria máquina
+
+Ficar atento na porta que o xampp utiliza para cada serviço para ver se não está sendo ocupada por nenhum outro. Por padrão, o apache utiliza as portas 80 (default) e 443 (ssl). Já o MySQL utiliza a porta 3306 e precisa que o firewall seja ativado.
+
+------------------------------- AULA 6 -------------------------------
+<?php -> tag de abertura php
+?> -> tag de fechamento php
+htdocs, www ou public_html -> Pasta padrão para salvar os arquivos (document root)
+
+O servidor apache interpreta o PHP e gera um HTML
+
+------------------------------- AULA 7 -------------------------------
+Servidor -> Provê um serviço
+Domain Name Server (DNS) -> Servidor que contém registro de domínios
+Ambiente cliente/servidor -> "local" que rune tanto as informações requisitadas pelo cliente, quanto as informações de resposta do servidor
+
+PHP é uma linguagem SERVER SIDE e sempre retorna um html por padrão, mas também pode retornar outros tipos de arquivos de texto, como JSON e CSV.
+
+A maioria das linguagens de programação tem variação web
+
+------------------------------- AULA 8 -------------------------------
+Git é utilizado para controle de versão se softwares e sistemas
+
+------------------------------- AULA 9 -------------------------------
+repositório -> Equivalente ao diretório principal
+
+Comandos git
+clone -> Copia o repositório indicado. Ex: git clone <link do repositorio>.git <nome da pasta que ele vai criar (opcional)>
+
+------------------------------- AULA 10 -------------------------------
+init -> configura o diretório/pasta atual como sendo um repositório git
+add -> Leva o arquivo para uma área conhecida como "Staging Area", que é um local que o arquivo fica esperando pela confirmação de que pode ser enviado ao servidor remoto. O parâmetro --all leva TODAS as alterações para a staging area
+commit -> confirma as modificações da staging area. O parâmetro -m deve ser incluído obrigatóriamente e deve ser seguido de um mensagem explanando o motivo do commit. Ex.: git commit -m "texto informativo"
+
+------------------------------- AULA 11 -------------------------------
+remote add <nome dado ao repositório de origem (normalmente coloca-se origin e não precisa o mesmo nome do repositório remoto)> <url do repositorio>
+config --global user.name "Seu Nome Normal" -> Configura o nome para determinado repositório
+config --global user.email "seu@email.normal" -> Configura o email para determinado repositório
+push <nome do repositório de destino(origin)> <nome do branch de destino (master é o branch principal)> -> Envia as alterações para o repositório remoto
+
+------------------------------- AULA 12 -------------------------------
+pull <nome do repositório de destino (origin)> <nome do branch de destino> -> envia para o repositório
+
+O PHP exibe o erro na linha em que parou de executar, mas não necessariamente na linha do erro. Caso algo algum erro aconteça, deve-se olhar a partir da linha exibida no erro, para cima.
+
+------------------------------- AULA 13 -------------------------------
+var_dump($variavel) -> exibe tipo, tamanho e valor da variável
+
+------------------------------- AULA 14 -------------------------------
+PHP Documentor: https://www.phpdoc.org/ -> Como documentar arquivos PHP. Também gera a documentação a partir do código fonte
+
+unset($variavel1, ..., $variaveln) -> Remove uma variável do sistema
+isset($variavel) -> Verifica se a variável existe
+ctrl+u -> mostra o código formatado no chrome
+variável do nula -> Ausência de valor
+variável vazia -> Iniciada com um valor vazio
+
+------------------------------- AULA 15 -------------------------------
+Array super global -> Variáveis internas do php que contém alguns recursos pré-definidos
+query string -> parâmetros enviados para a página via url
+url -> Uniform Resource Locator
+uri -> Uniform Resource Identifier
+
+O símbolo ? faz a divisão entre o que é o link do site e o que é a query string. Os parâmetros são enviados em forma de chave=valor. Para multiplos parâmetros, eles podem ser separados pelo símbolo &.
+
+A URL é divida em pequenas partes chamadas URI, que identificam alguma coisa. Ex.: .com indica o tipo de site, .br o país do site.
+A URL é sempre dividida da seguinte maneira: protocolo://sub-doíminio.nome-domínio:porta/path?parametros#fragmento
+
+------------------------------- AULA 17 -------------------------------
+== -> Comparador de valores
+=== -> Comparador de valor e TIPO
+<=> (Spaceship) -> [$a = $b ? 0][$a < $b ? -1][$a > $b ? 1]
+?? (Null Coalesce) -> Retorna o primeiro operando caso exista e seja diferente de null. Ex.: ($a = null) ?? ($b = null) ?? ($c = 10) -> Irá retornar c
+
+------------------------------- AULA 18 -------------------------------
+Aspas duplas vs Aspas simples -> Aspas simples pode interpolar variáveis sem precisar do operador de concatenação. Ex.: "O resultado de $a + $b = $r"
+strtoupper($variavel) -> Coloca todas as letras em maiúscula
+strtolower($variavel) -> Coloca todas as letras em minúscula
+ucwords($variavel) -> Coloca a primeira letra de uma frase capitalizada
+ucfirst($variavel) -> Coloca a primeira letra de cada palavra capitalizada
+strpos($variavel, $palavra-chave) -> Encontra a posição da palavra-chave em determinada variável
+substr($variavel, startIndex, endIndex) -> Gera uma substring da variável entre as posições indicadas
+strlen($variavel) -> Retorna o tamanho da string
+
+------------------------------- AULA 19 -------------------------------
+include "nome_do_arquivo.php"-> Tenta incluir um arquivo dentro de outro, caso não consiga, exibe a página sem o arquivo
+require "nome_do_arquivo.php"-> Tenta incluir um arquivo dentro de outro, mas obriga que o arquivo importado exista e esteja funcionando corretamente, caso contrário é gerado uma excessão (php 7) ou a pagina morre (php 7-)
+include_once e require_once "nome_do_arquivo.php" -> faz os mesmo que as outras funções, porém garante que o arquivo só será carregado uma única vez
+
+O incluide também tem mais recursos que o require, sendo o principal a possiblidade de pegar arquivos de um diretório padrão chamado include path. Este diretório é importante, pois permite que códigos possam ser facilmente compartilhados em um time e também garante que os integrantes possuam a mesma versão deste código. Se o include não encontrar o arquivo requisitado no caminho informado, ele verifica neste diretório.
+
+==================﻿================== 06.028 - CRIANDO E ENTENDENDO SESSÕES ==================﻿==================
+Toda sessão tem um timeout de, normalmente, 20min que pode ser configurado.
+Por padrão, uma sessão não é inicial automaticamente.
+Pode-se criar um arquivo de configuração que teria diversas função que seriam necessárias em todas as páginas e 
+utilizar o require_once('config.php')
+
+session_start() -> Inicia a sessão
+$_SESSION['variável'] = valor; -> Cria uma variável de sessão
+$_SESSION['variável'] -> Recupera uma variável de sessão
+session_unset($_SESSION['variável']); -> Limpa uma variável de sessão. Se não houver parâmetro, limpa todas as 
+variáveis de sessão
+session_destroy($_SESSION['variável']); -> Destroi a sessão
+
+﻿==================﻿================== 12.056 - INSTALANDO O SQL SERVER EXPRESS ﻿==================﻿==================
+IDENTITY -> Equivalente ao AUTO_INCREMENT do MySQL
+DATETIME -> Equivalente ao TIMESTAMP do MySQL
+GETDATE() -> Equivalente ao CURRENT_TIMESTAMP() do MySQL
+https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu/ -> Link para instalar o SQL Server no 
+Ubuntu e se comunicar com o PHP
